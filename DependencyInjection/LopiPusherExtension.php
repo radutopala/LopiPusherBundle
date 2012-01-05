@@ -43,6 +43,10 @@ class LopiPusherExtension extends Extension
         if (isset($config['auth_service_id'])) {
             $container->setAlias('lopi_pusher.authenticator', $config['auth_service_id']);
         }
+        
+        if (isset($config['time_diff'])) {
+            $container->setParameter('lopi_pusher.time.diff', $config['time_diff']);
+        }
 		
         $loader->load('services.xml');
     }

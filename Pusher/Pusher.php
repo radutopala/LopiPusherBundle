@@ -34,7 +34,7 @@ class Pusher
         $bodyJson = json_encode($body);
         
         $query = 'auth_key=' . $this->key . 
-            '&auth_timestamp=' . time() . 
+            '&auth_timestamp=' . (time()+$this->container->getParameter('lopi_pusher.time.diff')) . 
             '&auth_version=' . $this->container->getParameter('lopi_pusher.auth.version')  . 
             '&body_md5=' . md5($bodyJson) . 
             '&name=' . $eventName;
